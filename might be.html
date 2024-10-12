@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tzealous World</title>
+
+</head>
+<Style>
+    /* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+/* 
+header {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+} */
+.navbar {
+        background-color: #d2d2d2;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7px 30px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        height: 80px;
+        width: ;
+    }
+
+    .logo img {
+        width: 80px;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0 15px;
+    }
+
+    .nav-links li a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s;
+    }
+     
+    .nav-links li a:hover {
+        color: #ffa500;
+    }
+
+
+
+    .ctab {
+        border: 1px solid black;
+        padding: 10px;
+        font-size: 15px;
+        outline: none;
+        width: 300px;
+        border-radius: 25px;
+        transition: width 0.3s ease;
+    }
+
+    #imgs {
+        display: flex;
+        gap: 50px;
+    }
+    
+    .heart {
+        width: 30px;
+        
+    }
+    .heart:hover {
+        cursor: pointer;
+    }
+
+    .bag {
+        width: 30px;
+
+    }
+    
+    .bag:hover {
+        cursor: pointer;
+    }
+
+/* Hamburger Icon */
+.hamburger {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background-color: black;
+    margin: 4px;
+    transition: 0.3s;
+}
+
+/* Header Icons */
+#imgs {
+    display: flex;
+    gap: 20px; /* Adjust the gap between icons */
+}
+
+/* Adjust the size of the icons */
+.heart, .bag {
+    width: 25px; /* Set the width of the icons */
+    height: 25px; /* Set the height of the icons */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* You can also add hover effects if desired */
+.heart:hover, .bag:hover {
+    opacity: 0.8; /* Slightly fade the icons on hover */
+}
+
+/* Full-Screen Menu Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 300px; /* Width of the menu */
+    height: 100%;
+    background-color: white;
+    transition: left 0.3s ease;
+    z-index: 999;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-overlay.active {
+    left: 0; /* Move to viewable area */
+}
+
+/* Close Icon */
+.close {
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+/* Menu Links */
+.menu-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 50px; /* Space above menu items */
+}
+
+.menu-links li {
+    margin: 20px 0;
+}
+
+.menu-links li a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.hero {
+    position: relative;
+    text-align: center;
+}
+
+.hero img {
+    width: 100%; /* Full width for the hero image */
+    height: auto;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.cta-button {
+    background-color: #ff6f61; /* Call-to-action color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Products Section */
+.products {
+    padding: 50px 30px;
+    background-color: #ffffff; /* Light Yellow Background */
+    text-align: center;
+}
+
+.products h2 {
+    font-size: 36px;
+    color: #ff6f61;
+    margin-bottom: 30px;
+}
+
+.product-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background-color: white;
+    /* border: 2px solid #ff6f61; Coral Border */
+    padding: 20px;
+    margin: 20px;
+    width: 250px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    color: #482f2d;
+}
+
+.product-card p {
+    font-size: 18px;
+}
+
+.product-card button {
+    background-color: #88c920; /* Bright Yellow Button */
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.product-card button:hover {
+    background-color: #fbc02d; /* Darker Yellow on Hover */
+}
+
+/* Footer */
+footer {
+    background-color: #c3c3c3;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-desktop {
+        display: none; /* Hide desktop nav on small screens */
+    }
+
+    .hamburger {
+        display: flex; /* Show hamburger on small screens */
+    }
+
+    .header-icons {
+        order: 1; /* Ensure icons are in the right order */
+    }
+}
+
+
+</Style>
+<body>
+    
+        
+    <nav class="navbar">
+        <div class="logo"><img src="Snapchat-1795739813.jpg" alt=""></div>
+            <ul class="nav-links">
+                <li><a href="might be.html">New</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="street wears.html">Street Wears</a></li>
+                <li><a href="Underwears.html">Under wears </a></li>
+                <li><a href="Sale.html">Sale</a></li>
+            </ul>
+        <div class="cta"><input class="ctab" type="text" placeholder="Search"></div>
+
+            <div id="imgs">
+                <a href="#"><img class="heart" src="clipart119407.png" alt="Favorites"></a>
+                <a href="#"><img class="bag" src="pngwing.com.png" alt="Shopping Bag"></a>
+            </div>
+        </div>
+
+    </nav>
+    <!-- Full-Screen Hamburger Menu
+    <div class="menu-overlay">
+        <div class="menu-header">
+            <span class="close">&times;</span>
+        </div>
+        <nav>
+            <ul class="menu-links">
+                <li><a href="new.html">New</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="street-wears.html">Street Wears</a></li>
+                <li><a href="Underwears.html">Underwears</a></li>
+                <li><a href="Sale.html">Sale</a></li>
+            </ul>
+        </nav>
+    </div> -->
+    
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="heropic.jpg" alt="Hero Image">
+        <div class="hero-text">
+            <h1>Unleash Your Potential</h1>
+            <a href="#" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="products">
+        <h2>All Products</h2>
+        <div class="product-list" id="productList">
+            <!-- Example of a product card -->
+            <div class="product-card">
+                <img src="blue top.jpeg" alt="Product 1">
+                <h3>Tzealous Beast Blue top</h3>
+                <p>$31.99</p>
+                <button onclick="viewProduct(1)">Add to cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="brown top.jpeg" alt="Product 2">
+                <h3>Tzealous Beast Blue top</h3>
+                <p>$31.99</p>
+                <button onclick="viewProduct(2)">Add to cart</button>
+            </div>
+
+            
+            <div class="product-card">
+                <img src="9a66d1ef-a497-40f7-becb-c00fcfb2e277.jpeg" alt="Product 2">
+                <h3>Tzealous Wild Street zeal top </h3>
+                <p>$31.99</p>
+                <button onclick="viewProduct(2)">Add to cart</button>
+            </div>
+
+            
+            <div class="product-card">
+                <img src="9fa1bac2-56c5-4301-8bb7-e7f105cc90b8.jpeg" alt="Product 2">
+                <h3>Tzealous Oceanic Fun Black Edition</h3>
+                <p>$31.99</p>
+                <button onclick="viewProduct(2)">Add to cart</button>
+            </div>
+
+            
+            <div class="product-card">
+                <img src="4370c0c3-acbf-4f90-9950-05777f543be8.jpeg" alt="Product 2">
+                <h3>Tzealous Beach Buddy Tee white Edition</h3>
+                <p>$31.99</p>
+                <button onclick="viewProduct(2)">Add to cart</button>
+            </div>
+
+            
+            <div class="product-card">
+                <img src="4a08f2ad-6b9f-402c-9832-080c06c095e2.jpeg" alt="Product 2">
+                <h3>Tzealous Nightfall Tee</h3>
+                <p>$31.99</p>
+                <button onclick="viewProduct(2)">Add to cart</button>
+            </div>
+
+            
+            <div class="product-card">
+                <img src="77f2d93b-a084-44f7-9051-5711e6342f47.jpeg" alt="Product 2">
+                <h3>Tzealous Wild Street zeal top white Edition</h3>
+                <p>$31.99</p>
+                <button onclick="viewProduct(2)">Add to cart</button>
+            </div>
+
+                        
+            <div class="product-card">
+                <img src="feba564e-e237-4186-8f48-753dbe2837b3.jpeg" alt="Product 2">
+                <h3>Tzealous Beast Cream top</h3>
+                <p>$31.99</p>
+                <button onclick="viewProduct(2)">Add to cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Snapchat-1170764303.jpg" alt="Product 2">
+                <h3>Tzealous Dynamic Play Shorts</h3>
+                <p>$31.99</p>
+                <button onclick="viewProduct(2)">Add to cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Snapchat-149186881.jpg" alt="Product 2">
+                <h3>Tzealous Beast Cream top</h3>
+                <p>$31.99</p>
+                <button onclick="viewProduct(2)">Add to cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Snapchat-216769699.jpg" alt="Product 2">
+                <h3>Tzealous Tzealous Beanies</h3>
+                <p>$31.99</p>
+                <button onclick="viewProduct(2)">Add to cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Snapchat-655134363.jpg" alt="Tzealous All-Day Comfort Socks">
+                <h3>Tzealous All-Day Comfort Socks</h3>
+                <p>$31.99</p>
+        
+                <div class="size-options">
+                    <label>
+                        <input type="radio" name="size" value="S">
+                        Small (S)
+                    </label>
+                    <label>
+                        <input type="radio" name="size" value="M">
+                        Medium (M)
+                    </label>
+                    <label>
+                        <input type="radio" name="size" value="L">
+                        Large (L)
+                    </label>
+                    <label>
+                        <input type="radio" name="size" value="XL">
+                        Extra Large (XL)
+                    </label>
+                </div>
+            
+                <button onclick="addToCart(2)">Add to Cart</button>
+            </div>
+            
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Tzealous World. All rights reserved.</p>
+    </footer>
+
+    <script src="Tzealous World.js"></script>
+</body>
+</html>
